@@ -1,0 +1,2 @@
+# Allow users in plugdev group to create virtual input devices
+KERNEL=="uinput", SUBSYSTEM=="misc", MODE="0660", GROUP="plugdev"

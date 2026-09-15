@@ -1,0 +1,3 @@
+# Ulanzi AU05 Vibe Key permissions for plugdev users
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="fff1", ATTRS{idProduct}=="00dd", MODE="0666", GROUP="plugdev"
+SUBSYSTEM=="input", ATTRS{idVendor}=="fff1", ATTRS{idProduct}=="00dd", MODE="0666", GROUP="plugdev"

@@ -1,0 +1,14 @@
+[Unit]
+Description=Typist - Ulanzi AU05 Voice Typing Assistant
+After=pipewire.service
+Wants=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/typist
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
