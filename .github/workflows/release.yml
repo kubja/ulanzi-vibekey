@@ -1,0 +1,124 @@
+name: Build & Release Typist
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux-deb:
+    name: Build Linux .deb & Wheel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build Debian package
+        run: |
+          chmod +x packaging/linux/build_deb.sh
+          ./packaging/linux/build_deb.sh
+
+      - name: Build Python wheel & sdist
+        run: |
+          pip install --upgrade pip build
+          python -m build
+
+      - name: Upload Debian Package
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-deb
+          path: dist/*.deb
+
+      - name: Upload Wheel & sdist
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-dist
+          path: dist/*
+
+  build-windows:
+    name: Build Windows Installer
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[cross-platform]"
+          pip install pyinstaller
+
+      - name: Build standalone executable
+        run: |
+          pyinstaller --clean packaging/windows/typist.spec
+
+      - name: Build Inno Setup Installer
+        uses: TechComet/inno-setup-action@v1.2.0
+        with:
+          path: packaging/windows/typist.iss
+
+      - name: Upload Windows Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer
+          path: dist/Typist-Setup-*.exe
+
+  build-macos:
+    name: Build macOS Binary
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build macOS tarball
+        run: |
+          chmod +x packaging/macos/build_macos.sh
+          ./packaging/macos/build_macos.sh
+
+      - name: Upload macOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-tarball
+          path: dist/typist-macos-*.tar.gz
+
+  release:
+    name: Create GitHub Release
+    needs: [build-linux-deb, build-windows, build-macos]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all built artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-assets/*.deb
+            release-assets/*.exe
+            release-assets/*.tar.gz
+            release-assets/*.whl
+          generate_release_notes: true
