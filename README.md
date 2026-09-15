@@ -1,8 +1,16 @@
-# Typist - Ulanzi Vibe Key AU05 Driver & Voice Typing Assistant
+# Typist — Driver & Voice Assistant for Ulanzi Vibe Key AU05
 
-Open-source driver and cross-platform voice typing assistant for the **Ulanzi AU05 Vibe Key** (`fff1:00dd`).
+<p align="center">
+  <a href="https://www.ulanzi.com/products/ulanzi-au05-vibe-key-ai-voice-input-keypad-i018">
+    <img src="docs/images/ulanzi_au05.png" alt="Ulanzi Vibe Key AU05" width="480">
+  </a>
+</p>
 
-Typist captures the AU05 voice key, records speech from the built-in microphone, transcribes it using **Whisper** (either locally in-process or via any remote OpenAI-compatible STT endpoint), and emulates native keystrokes directly into any active window on Linux (Wayland / GNOME / X11), Windows, and macOS.
+<p align="center">
+  <b>Open-source driver and cross-platform voice typing assistant for the <a href="https://www.ulanzi.com/products/ulanzi-au05-vibe-key-ai-voice-input-keypad-i018">Ulanzi Vibe Key AU05</a> (<code>fff1:00dd</code>).</b>
+</p>
+
+Typist captures the AU05 voice key, records speech from the built-in microphone, transcribes it using **Whisper** (either locally in-process with `faster-whisper` or via any remote OpenAI-compatible STT endpoint), and emulates native keystrokes directly into any active window on Linux (Wayland / GNOME / X11), Windows, and macOS.
 
 ---
 

@@ -8,7 +8,7 @@ This document provides reverse-engineered technical specifications, USB descript
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Product Name** | Ulanzi Vibe Key AU05 (SKU I018) |
+| **Product Name** | [Ulanzi Vibe Key AU05 (SKU I018)](https://www.ulanzi.com/products/ulanzi-au05-vibe-key-ai-voice-input-keypad-i018) |
 | **Vendor ID (VID)** | `0xfff1` |
 | **Product ID (PID)** | `0x00dd` |
 | **Manufacturer** | `AU05` |
