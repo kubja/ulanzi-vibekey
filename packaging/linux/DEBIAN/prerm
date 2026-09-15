@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+# Stop user services if running
+systemctl --user stop typist 2>/dev/null || true
+
+exit 0

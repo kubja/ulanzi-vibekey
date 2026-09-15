@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+# Reload udev rules
+if [ -x /bin/udevadm ]; then
+    udevadm control --reload-rules || true
+    udevadm trigger || true
+fi
+
+echo "============================================================"
+echo "Typist installed successfully!"
+echo ""
+echo "Please make sure your user is part of the 'plugdev' group:"
+echo "    sudo usermod -a -G plugdev \$USER"
+echo ""
+echo "To run typist in user mode:"
+echo "    typist"
+echo ""
+echo "To enable as a background systemd user service:"
+echo "    systemctl --user enable --now typist"
+echo "============================================================"
+
+exit 0

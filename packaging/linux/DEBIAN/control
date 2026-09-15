@@ -1,0 +1,12 @@
+Package: typist
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Jakub <jakubtom@gmail.com>
+Depends: python3 (>= 3.10), python3-pip, python3-evdev, python3-numpy, pipewire | pulseaudio-utils
+Recommends: python3-sounddevice
+Description: Ulanzi Vibe Key AU05 Driver & Voice Typing Assistant
+ Typist is a driver and speech-to-text dictation client for the Ulanzi AU05
+ keypad. It captures the AU05 voice key, streams microphone audio to local or
+ remote Whisper STT models, and emulates native keystrokes via Linux uinput.
