@@ -54,7 +54,7 @@ systemctl --user enable --now typist
 
 #### Option B: Install from source
 ```bash
-git clone https://github.com/jakubtom/typist.git
+git clone https://github.com/kubja/ulanzi-vibekey.git
 cd typist
 python3 -m venv .venv
 source .venv/bin/activate

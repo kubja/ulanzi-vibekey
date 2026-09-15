@@ -2,7 +2,7 @@
 #define MyAppName "Typist"
 #define MyAppVersion "0.1.0"
 #define MyAppPublisher "Jakub"
-#define MyAppURL "https://github.com/jakubtom/typist"
+#define MyAppURL "https://github.com/kubja/ulanzi-vibekey"
 #define MyAppExeName "typist.exe"
 
 [Setup]
