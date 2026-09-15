@@ -113,6 +113,13 @@ typist --init-config
 
 ---
 
+## 📖 Technical Documentation
+
+For in-depth details on the USB reverse engineering, descriptors, HID report tables, and keepalive discovery, see:
+- [Hardware & Protocol Specification](docs/hardware_protocol.md)
+
+---
+
 ## 📜 License
 
 MIT License. See [LICENSE](LICENSE) for details.

@@ -43,9 +43,9 @@ typist/
 │   └── 99-uinput.rules        # uinput permissions for virtual keyboard
 ├── systemd/
 │   └── typist.service         # Systemd user service unit template
-├── tools/
-│   └── sniff.py               # Low-level HID/event packet sniffing utility
-└── packaging/                 # Platform packaging scripts (deb, windows, macos)
+├── packaging/                 # Platform packaging scripts (deb, windows, macos)
+└── docs/                      # Technical hardware specs & reverse-engineered protocol
+    └── hardware_protocol.md   # AU05 USB topology, HID report structures, and keepalive logic
 ```
 
 ---
