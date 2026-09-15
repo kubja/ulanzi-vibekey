@@ -68,10 +68,12 @@ jobs:
         run: |
           pyinstaller --clean packaging/windows/typist.spec
 
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+
       - name: Build Inno Setup Installer
-        uses: TechComet/inno-setup-action@v1.2.0
-        with:
-          path: packaging/windows/typist.iss
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" packaging\windows\typist.iss
 
       - name: Upload Windows Installer
         uses: actions/upload-artifact@v4
