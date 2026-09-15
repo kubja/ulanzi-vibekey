@@ -10,9 +10,9 @@ This document provides reverse-engineered technical specifications, USB descript
 | :--- | :--- |
 | **Product Name** | [Ulanzi Vibe Key AU05 (SKU I018)](https://www.ulanzi.com/products/ulanzi-au05-vibe-key-ai-voice-input-keypad-i018) |
 | **Vendor ID (VID)** | `0xfff1` |
-| **Product ID (PID)** | `0x00dd` |
-| **Manufacturer** | `AU05` |
-| **Product String** | `AU05` |
+| **Manufacturer** | **Ulanzi** |
+| **USB Manufacturer String** | `AU05` (firmware descriptor string) |
+| **USB Product String** | `AU05` |
 | **Default Serial Number** | `202606031150` |
 | **USB Class** | Composite Device: USB Audio 1.0 + Multi-Interface HID |
 | **Physical Controls** | • 3 Mechanical Key Switches<br>• 1 Rotary Encoder Knob (Turn Left, Turn Right, Push Click)<br>• 1 Dedicated Voice / Mic Key (Side/Front)<br>• 1 Omnidirectional Microphone |
