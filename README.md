@@ -114,8 +114,6 @@ typist --init-config
 | `api_key` | `WHISPER_API_KEY` | `""` | Optional bearer token for remote API |
 | `model` | `WHISPER_MODEL` | `openai/whisper-large-v3-turbo` | Remote model identifier |
 | `local_model_size` | `WHISPER_LOCAL_MODEL` | `base` | Model size for local STT (`tiny`, `base`, `small`, `medium`, `large-v3`) |
-| `local_device` | `WHISPER_LOCAL_DEVICE` | `auto` | `auto`, `cpu`, or `cuda` |
-| `dictation_mode` | `DICTATION_MODE` | `hold` | `hold` (push-to-talk) or `toggle` (tap to start/stop) |
 | `append_space` | `APPEND_SPACE` | `true` | Appends a space after each dictated sentence |
 | `key_delay` | `KEY_DELAY` | `0.003` | Delay between keystrokes in seconds |
 

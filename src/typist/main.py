@@ -35,13 +35,7 @@ class TypistApp:
         logger.info(f"Button pressed: {key_name}")
 
         if key_name == KEY_VOICE:
-            if self.config.dictation_mode == "toggle":
-                if self.recorder.is_recording:
-                    self._stop_and_transcribe()
-                else:
-                    self._start_recording()
-            else:
-                self._start_recording()
+            self._start_recording()
 
         elif key_name == KEY_BUTTON_3:
             if self.recorder.is_recording:
@@ -52,7 +46,7 @@ class TypistApp:
     def on_key_up(self, key_name: str):
         logger.info(f"Button released: {key_name}")
 
-        if key_name == KEY_VOICE and self.config.dictation_mode == "hold":
+        if key_name == KEY_VOICE:
             self._stop_and_transcribe()
 
     def on_knob(self, delta: int):
@@ -104,8 +98,7 @@ class TypistApp:
         print("=" * 64)
         print("  TYPIST - Ulanzi AU05 Voice Typing Assistant")
         print(f"  STT Engine: {mode_desc}")
-        print(f"  Dictation Mode: {self.config.dictation_mode}")
-        print("  Hold the Voice Key on your AU05 to talk, release to type!")
+        print("  Push-to-Talk: Hold Voice Key on AU05 to speak, release to type!")
         print("=" * 64)
         sys.stdout.flush()
 
@@ -134,7 +127,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", dest="local_device", choices=["auto", "cpu", "cuda"], help="Compute device for local model")
     parser.add_argument("--language", dest="whisper_language", help="Spoken language ISO code (e.g. en, fr, de, es, auto)")
     parser.add_argument("-p", "--prompt", dest="whisper_prompt", help="Initial prompt / vocabulary biasing")
-    parser.add_argument("--dictation-mode", choices=["hold", "toggle"], help="Dictation trigger mode")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose debug logging")
     return parser.parse_args()
 
@@ -177,8 +169,6 @@ def main():
         overrides["whisper_language"] = args.whisper_language
     if args.whisper_prompt:
         overrides["whisper_prompt"] = args.whisper_prompt
-    if args.dictation_mode:
-        overrides["dictation_mode"] = args.dictation_mode
 
     cfg = Config.load(config_path=args.config, overrides=overrides)
     app = TypistApp(cfg)

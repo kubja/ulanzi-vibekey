@@ -40,9 +40,6 @@ class Config:
     vendor_id: int = 0xfff1
     product_id: int = 0x00dd
 
-    # Dictation mode: 'hold' (push-to-talk) or 'toggle'
-    dictation_mode: str = "hold"
-
     # Audio settings
     sample_rate: int = 16000
     channels: int = 1
@@ -93,7 +90,6 @@ class Config:
 
                 if "typing" in toml_data:
                     t = toml_data["typing"]
-                    data["dictation_mode"] = t.get("dictation_mode", data.get("dictation_mode", "hold"))
                     data["key_delay"] = t.get("key_delay", data.get("key_delay", 0.003))
                     data["append_space"] = t.get("append_space", data.get("append_space", True))
 
@@ -132,10 +128,6 @@ class Config:
         env_local_size = os.getenv("WHISPER_LOCAL_MODEL")
         if env_local_size:
             data["local_model_size"] = env_local_size
-
-        env_dict_mode = os.getenv("DICTATION_MODE")
-        if env_dict_mode:
-            data["dictation_mode"] = env_dict_mode
 
         env_delay = os.getenv("KEY_DELAY")
         if env_delay:
@@ -184,8 +176,6 @@ vendor_id = 0x{self.vendor_id:04x}
 product_id = 0x{self.product_id:04x}
 
 [typing]
-# 'hold' (push-to-talk) or 'toggle'
-dictation_mode = "{self.dictation_mode}"
 key_delay = {self.key_delay}
 append_space = {str(self.append_space).lower()}
 """
