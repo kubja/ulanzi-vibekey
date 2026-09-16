@@ -116,7 +116,7 @@ class AudioRecorder:
             if status:
                 logger.debug(f"Audio status: {status}")
             with self._lock:
-                self._buffer.extend(indata.tobytes())
+                self._buffer.extend(bytes(indata))
 
         try:
             self._sd_stream = sd.RawInputStream(
