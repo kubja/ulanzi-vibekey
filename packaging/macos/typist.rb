@@ -1,7 +1,7 @@
 class Typist < Formula
   desc "Voice typing assistant and driver for Ulanzi Vibe Key AU05"
   homepage "https://github.com/kubja/ulanzi-vibekey"
-  url "https://github.com/kubja/ulanzi-vibekey/archive/refs/tags/v0.1.0.tar.gz"
+  url "https://github.com/kubja/ulanzi-vibekey/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "PLACEHOLDER_SHA256"
   license "MIT"
 

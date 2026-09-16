@@ -31,10 +31,10 @@ Typist captures the AU05 voice key, records speech from the built-in microphone,
 ### Linux (Debian / Ubuntu)
 
 #### Option A: Install via `.deb` package
-Download the latest `typist_0.1.0_all.deb` from Releases, or build it locally:
+Download the latest `typist_0.2.0_all.deb` from Releases, or build it locally:
 ```bash
 ./packaging/linux/build_deb.sh
-sudo dpkg -i dist/typist_0.1.0_all.deb
+sudo dpkg -i dist/typist_0.2.0_all.deb
 ```
 
 Ensure your user is in the `plugdev` group for non-root hardware access:
@@ -69,7 +69,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ### Windows
 
-1. Download and run `Typist-Setup-0.1.0.exe` from the latest GitHub Release.
+1. Download and run `Typist-Setup-0.2.0.exe` from the latest GitHub Release.
 2. The installer provides options to create a Desktop shortcut and launch automatically on Windows startup.
 3. Plug in your AU05, and Typist will automatically connect to it.
 
@@ -82,7 +82,7 @@ packaging\windows\build_windows.bat
 
 ### macOS
 
-1. Download `typist-macos-0.1.0.tar.gz` from Releases and extract to `/usr/local/bin/`.
+1. Download `typist-macos-0.2.0.tar.gz` from Releases and extract to `/usr/local/bin/`.
 2. Grant **Accessibility / Input Monitoring** permissions to `typist` in *System Settings -> Privacy & Security*.
 3. To start automatically on login via `launchd`:
 ```bash

@@ -1,6 +1,6 @@
 ; Inno Setup Script for Typist
 #define MyAppName "Typist"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "0.2.0"
 #define MyAppPublisher "Jakub"
 #define MyAppURL "https://github.com/kubja/ulanzi-vibekey"
 #define MyAppExeName "typist.exe"
